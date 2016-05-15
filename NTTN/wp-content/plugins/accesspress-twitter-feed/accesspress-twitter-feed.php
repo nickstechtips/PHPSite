@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.4.3
+ * Version: 1.4.4
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: accesspress-twitter-feed
@@ -24,7 +24,7 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.4.3');
+    define('APTF_VERSION', '1.4.4');
 }
 
 if (!defined('APTF_TD')) {
@@ -310,7 +310,8 @@ if (!class_exists('APTF_Class')) {
                 $access_token = $aptf_settings['access_token'];
                 $access_token_secret = $aptf_settings['access_token_secret'];
         	    $oauth_connection = $this->get_oauth_connection($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-        	    $tweets = $oauth_connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$tweets_number);
+                $api_url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$tweets_number.'&exclude_replies=true';
+                $tweets = $oauth_connection->get(apply_filters('aptf_api_url',$api_url,$username,$tweets_number));
                 $cache_period = intval($aptf_settings['cache_period']) * 60;
                 $cache_period = ($cache_period < 1) ? 3600 : $cache_period;
                 if(!isset($tweets->errors)){

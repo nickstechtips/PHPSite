@@ -10,6 +10,8 @@
  *
  * @package accesspress_parallax
  */
+$Users = $wpdb;
+
 
 get_header(); ?>
 <?php if(of_get_option('enable_parallax') == 1 || of_get_option('enable_parallax') == NUll): 

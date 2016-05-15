@@ -10,7 +10,12 @@ if(isset($options['twitter_counter_api'])){
 }else{
 	$twitter_api_use = '1';
 }
-$url = get_permalink();
+
+if(isset($attr['custom_share_link']) && $attr['custom_share_link'] !=''){
+	$url = esc_url($attr['custom_share_link']);
+}else{
+	$url = get_permalink();
+}
 $cache_period = ($options['cache_period'] != '') ? $options['cache_period'] * 60 * 60 : 24 * 60 * 60;
 if ( isset( $attr['networks'] ) ) {
 	$raw_array = explode( ',', $attr['networks'] );

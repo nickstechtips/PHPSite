@@ -31,6 +31,7 @@
             <li><i class="fa fa-check"></i>share_text: You can add the share text. To use share text use share_text='text to be shared'. If you don't use this parameter the share text will not appear in shortcode.</li>
             <li><i class="fa fa-check"></i>counter : You can enable or disable the share counter. To enable the share count use counter='1' and to disable it simply don't use counter parameter or use parameter counter='0'.</li>
             <li><i class="fa fa-check"></i>total_counter : You can enable or disable the total share counter. To enable the total share count use total_counter='1' and to disable it simply don't use total_counter parameter or use parameter total_counter='0'.</li>
+            <li><i class="fa fa-check"></i>custom_share_link : You can enter the custom share link in case if the link provided by shortcode is not as per your need. To enable the custom share link use custom_share_link='custom link as per your need.'</li>
         </ul>
         <li><i class="fa fa-check"></i>Example 2: <code>[apss_share networks='facebook, twitter, pinterest' share_text='Share it' counter='1' total_counter='1']</code></li>
     </ul>

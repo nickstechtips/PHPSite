@@ -34,9 +34,10 @@ $apsc_settings = $this->apsc_settings;
 
                 <div class="apsc-title"><?php _e('AccessPress Social Counter', 'accesspress-social-counter'); ?></div>
             </div>
+            <?php if(isset($_SESSION['apsc_message'])){?><div class="notice notice-success is-dismissible"><p><?php echo $_SESSION['apsc_message'];unset($_SESSION['apsc_message']);?></p></div><?php }?>
             <p class="description"><?php _e('Note: Please check the System Status if your server system status meets all the requirement for the plugin before you use the plugin.<br/><br/> If you find any unsual issues then please check by deleting cache using the "Delete Cache" button below.And if you like our plugin then please don\'t forget to give us a rating <a href="https://wordpress.org/support/view/plugin-reviews/accesspress-social-counter#postform" target="_blank"> here </a>. Its the only way to keep us motivated to make the plugin even better.
 ','accesspress-social-counter');?></p>
-            <?php if(isset($_SESSION['apsc_message'])){?><div class="apsc-success-message"><p><?php echo $_SESSION['apsc_message'];unset($_SESSION['apsc_message']);?></p></div><?php }?>
+            
             <div class="apsc-boards-wrapper">
                 <ul class="apsc-settings-tabs">
                     <li><a href="javascript:void(0)" id="social-profile-settings" class="apsc-tabs-trigger apsc-active-tab"><?php _e('Social Profiles', 'accesspress-social-counter') ?></a></li>

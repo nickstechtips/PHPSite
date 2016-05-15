@@ -29,7 +29,7 @@ define('DB_USER', 'ntt');
 define('DB_PASSWORD', 'Nickstechtips');
 
 /** MySQL hostname */
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', '192.168.1.212');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
