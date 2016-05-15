@@ -366,13 +366,18 @@ if ( !class_exists( 'UFBL_Lib' ) ) {
 				$email_recievers = $form_detail['email_settings']['email_reciever'];
 				$headers = array();
                 $headers[] = 'Content-Type: text/html; charset=UTF-8';
-                $headers[] = 'From: ' . $from_name . '<' . $from_email . '>' ;
-				
+                $headers[] = 'From: ' . $from_name . ' <' . $from_email . '>' ;
+				$headers = apply_filters('ufbl_mail_header',$headers);
                 
 				foreach ( $email_recievers as $email_reciever ) {
 					$to_email = ($email_reciever == '') ? $admin_email : esc_attr( $email_reciever );
 					//$mail = mail( $to_email, $email_subject, $form_html, $headers );
                     $mail = wp_mail( $to_email,$email_subject, $form_html, $headers );
+                    
+                    /**
+                     * Action to trigger after email
+                     * */
+                    do_action('ufbl_email_send',$to_email,$email_subject,$form_html,$headers);
 				}
 			}
 		}

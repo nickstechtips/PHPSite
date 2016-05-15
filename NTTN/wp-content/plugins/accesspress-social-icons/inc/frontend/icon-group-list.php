@@ -63,7 +63,7 @@
 
                         $border = ($icon['border_type'] == 'none') ? '' : "border:{$border_thickness}px $border_type $border_color;";
                         ?>
-                        <img src="<?php echo $icon['image']; ?>" alt="<?php echo esc_attr($title);?>"/>
+                        <img src="<?php echo apply_filters('apsi_image_url',$icon['image']); ?>" alt="<?php echo esc_attr($title);?>"/>
                         <?php
                         $icon_height = str_replace('px', '', $icon['icon_height']);
                         $icon_width = str_replace('px', '', $icon['icon_width']);

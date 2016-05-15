@@ -243,6 +243,13 @@
 							<label for='apss-email-body'><?php _e( 'Email body:', 'accesspress-social-share' ); ?></label>
 							<textarea rows='30' cols='30' name="apss_share_settings[apss_email_body]"><?php echo $options['apss_email_body'] ?></textarea>
 						</div>
+						<div class="apss_notes_cache_settings">
+							Available parameters: <br />
+							%%url%% = current page/post url(custom url if you have used "custom_share_link" attribute in the shortcode ) <br /> 
+							%%title%% = current page/post's title <br />
+							%%permalink%% = current page/post url <br />
+							%%siteurl%% = Site url <br />
+						</div>
 					</div>
 				</div>
 				<div class="apss-tab-contents apss-how-to-use" id="tab-apss-how-to-use" style='display:none' >

@@ -4,7 +4,7 @@ defined('ABSPATH') or die("No script kiddies please!");
  * Plugin Name:AccessPress Social Icons
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-social-icons/
  * Description: A plugin to add social icons in your site wherever you want dynamically with handful of configurable settings.
- * Version:1.5.2
+ * Version:1.5.3
  * Author:AccessPress Themes
  * Author URI:http://accesspressthemes.com/
  * Text Domain: accesspress-social-icons
@@ -23,6 +23,13 @@ if (!defined('APS_JS_DIR')) {
 if (!defined('APS_CSS_DIR')) {
     define('APS_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
+
+/**
+ * @since 1.5.3
+ * 
+ * */
+ defined('APSI_PLUGIN_URL') or define('APSI_PLUGIN_URL',plugin_dir_url(__FILE__));
+ 
 if (!defined('APS_ICONS_DIR')) {
     /**
      * apsi_icons_sets_directory filter
@@ -39,7 +46,7 @@ if (!defined('APS_LANG_DIR')) {
 }
 if(!defined('APS_VERSION'))
 {
-    define('APS_VERSION','1.5.2');
+    define('APS_VERSION','1.5.3');
 }
 /**
  * Register of widgets
@@ -68,6 +75,7 @@ if (!class_exists('APS_Class')) {
             add_action('wp_ajax_get_theme_icons', array($this, 'get_theme_icons')); //admin ajax for getting theme icons
             add_action('wp_ajax_nopriv_get_theme_icons', array($this, 'no_permission')); //ajax action for unathenticate admin ajax call
             add_action('widgets_init', array($this, 'register_aps_widget')); //register aps widget
+            add_filter('apsi_image_url',array($this,'check_url'));
             
         }
 
@@ -127,7 +135,6 @@ if (!class_exists('APS_Class')) {
                 /**
                  * Backend JS
                  * */
-                wp_enqueue_script('jquery-ui-sortable');
                 wp_enqueue_script('media-upload'); //for uploading image using wp native uploader
                 wp_enqueue_script('thickbox'); //for uploading image using wp native uploader + thickbox 
                 wp_enqueue_script('aps-admin-js', APS_JS_DIR . '/backend.js', array('jquery', 'jquery-ui-sortable', 'wp-color-picker'),APS_VERSION);//registering plugin's admin js
@@ -366,6 +373,27 @@ if (!class_exists('APS_Class')) {
         {
             include('inc/backend/how-to-use.php');
         }
+        
+        /**
+         * @since 1.5.3
+         * 
+         * Checks the URL of the image and matches with current site URL
+         *  
+         * */
+         function check_url($image_url){
+            if (strpos($image_url, '/icon-sets/') !== false){
+                    $image_url_array = explode('/icon-sets/',$image_url);
+                    $plugin_icon_url = APS_ICONS_DIR;
+                    //echo $image_url_array[1];
+                    $actual_image_url = $plugin_icon_url.'/'.$image_url_array[1];
+                    return $actual_image_url;
+                
+            }else{
+                return $image_url;
+            }
+            
+            
+         }
 
     }
 

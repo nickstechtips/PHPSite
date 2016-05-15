@@ -4,7 +4,7 @@ Tags: social icon, social icons, social media, social icon widget, social icons 
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.5
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,7 +90,12 @@ You can have more than one icon sets created and used on the site. A large icon 
 * <strong>Youtube channel link</strong>: https://www.youtube.com/watch?v=TjZNcVG3fDE
 * <strong>Facebook link</strong>: https://www.facebook.com/AccessPressThemes 
 
+= Available Languages =
+* English 
+* Swedish
 
+= Translators = 
+* Swedish - Elias Vahman
 
 For a easy installation guide checkout the Installation tab above.
 
@@ -124,6 +129,11 @@ Once you install the plugin , you can check some general documentation about how
 4. Backend Lcon Sets Listing 
 
 == Changelog ==
+= 1.5.3 = 
+* Added apsi_image_url filter 
+* Added relative URL fetch for the icon image
+* Added Swedish Language 
+
 = 1.5.2 = 
 * Added apsi_icon_sets_directory filter for icons sets directory so that it can be changed as required 
 

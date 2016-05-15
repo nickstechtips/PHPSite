@@ -1,10 +1,10 @@
-=== Ultimate Form Builder Lite ===
+=== Contact Form for WordPress - Ultimate Form Builder Lite ===
 Contributors: Access Keys
 Tags: contact form, form builder, form, forms, contact forms, enquiry forms, form manager, email form, lead form, email, database store form, form entry, form entries, email forms
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.5
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -146,6 +146,11 @@ Once you install the plugin , you can check some general documentation about how
 10. Backend Entry Detail
 
 == Changelog ==
+= 1.1.9 = 
+* Added ufbl_mail_header filter 
+* Fixed small bug regarding incomplete mail subject
+* Added ufbl_email_send action after email sending
+
 = 1.1.8 = 
 * Added Swedish Language
 
